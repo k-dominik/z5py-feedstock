@@ -10,29 +10,25 @@ source:
     sha256: {{ checksum }}
 
 build:
-  number: 1
+  number: 2
   skip: True  # [win and vc<14]
 
 requirements:
   build:
-    - cmake
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-  host:
-    - python
-    - boost-cpp {{ boost_cpp }}
-    - numpy
+    - python {{ python }}
+    - boost {{ boost }}
+    - numpy {{ numpy }}
     - xtensor >=0.17.1,<0.18
     - xtensor-python >=0.20,<0.21
     - blosc
     - bzip2
     - xz
-    - zlib
+    - zlib {{ zlib }}
     - nlohmann_json
   run:
     - python
-    - boost-cpp
-    - {{ pin_compatible('numpy') }}
+    - boost
+    - numpy
     - blosc
     - bzip2
     - xz

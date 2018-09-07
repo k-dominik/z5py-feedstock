@@ -1,9 +1,8 @@
-c_compiler:    # [linux]
-  - gcc        # [linux]
-cxx_compiler:  # [linux]
-  - gxx        # [linux]
-boost_cpp:
+boost:
   - 1.63
+zlib:
+  - 1.2
 
 pin_run_as_build:
-  boost-cpp: x.x
+  boost: x.x
+  zlib: x.x

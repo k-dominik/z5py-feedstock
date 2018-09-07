@@ -10,6 +10,15 @@ PY_VER=$(python -c "import sys; print('{}.{}'.format(*sys.version_info[:2]))")
 PY_ABIFLAGS=$(python -c "import sys; print('' if sys.version_info.major == 2 else sys.abiflags)")
 PY_ABI=${PY_VER}${PY_ABIFLAGS}
 
+if [[ `uname` == 'Darwin' ]]; then
+    export MACOSX_DEPLOYMENT_TARGET=10.9
+    export CC=clang
+    export CXX=clang++
+else
+    export CC=gcc
+    export CXX=g++
+fi
+
 ##
 ## Configure
 ##
