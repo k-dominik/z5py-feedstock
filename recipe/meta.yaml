@@ -20,7 +20,7 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - python
-    - boost-cpp
+    - boost-cpp {{ boost_cpp }}
     - numpy
     - xtensor >=0.17.1,<0.18
     - xtensor-python >=0.20,<0.21
