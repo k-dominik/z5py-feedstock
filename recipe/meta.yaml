@@ -8,6 +8,8 @@ package:
 source:
     url: https://github.com/constantinpape/z5/archive/{{ version }}.tar.gz
     sha256: {{ checksum }}
+    patches:
+        - patches/cmake_lz4_patch.file
 
 build:
   number: 0
