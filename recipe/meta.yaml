@@ -10,6 +10,7 @@ source:
     sha256: {{ checksum }}
     patches:
         - patches/cmake_lz4_patch.file
+        - patches/skip_visititems_test_win.patch
 
 build:
   number: 0
