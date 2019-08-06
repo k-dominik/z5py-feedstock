@@ -1,0 +1,20 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0ec49ca..b55b389 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -193,10 +193,12 @@ if(WITH_XZ)
+ endif()
+ 
+ if(WITH_LZ4)
+-    find_package(LZ4 REQUIRED)
++    find_package(LZ4)
+     include_directories(LZ4_INCLUDE_DIR)
+-    add_definitions(-DWITH_LZ4)
+-    SET(COMPRESSION_LIBRARIES "${COMPRESSION_LIBRARIES};${LZ4_LIBRARY}")
++    if(LZ4_FOUND)
++        add_definitions(-DWITH_LZ4)
++        SET(COMPRESSION_LIBRARIES "${COMPRESSION_LIBRARIES};${LZ4_LIBRARY}")
++    endif()
+ endif()
+ 
+ 

@@ -1,0 +1,13 @@
+diff --git a/src/python/test/test_group.py b/src/python/test/test_group.py
+index f75738f..daebd8d 100644
+--- a/src/python/test/test_group.py
++++ b/src/python/test/test_group.py
+@@ -100,6 +100,8 @@ class GroupTestMixin(object):
+         compression_opts = ds.compression_opts
+         self.assertEqual(compression_opts['level'], 4)
+ 
++    # cf. https://github.com/constantinpape/z5/issues/100
++    @unittest.skipIf(sys.platform.startswith('win'), 'path encoding not compatible with windows')
+     def test_visititems(self):
+         """ Issue #121
+ 

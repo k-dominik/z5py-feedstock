@@ -1,5 +1,5 @@
-{% set version = "1.4.1" %}
-{% set checksum = "0efc03aa7a42811e6630aa3ca7fa717df7824feeb9fd5e216e5739ba5f763403" %}
+{% set version = "1.5.0" %}
+{% set checksum = "3031250a3e791756d1418b40279652e5de6e978153de36be6d77e4941fa55212" %}
 
 package:
   name: z5py
@@ -8,9 +8,12 @@ package:
 source:
     url: https://github.com/constantinpape/z5/archive/{{ version }}.tar.gz
     sha256: {{ checksum }}
+    patches:
+        - patches/cmake_lz4_patch.file
+        - patches/skip_visititems_test_win.patch
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win and vc<14]
 
 requirements:
@@ -20,22 +23,24 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - python
-    - boost-cpp
+    - boost-cpp 1.69.0
     - numpy
     - xtensor >=0.19,<0.20
     - xtensor-python >=0.22,<0.23
     - xsimd >=7,<8
     - blosc
     - bzip2
+    - lz4-c
     - xz
     - zlib
     - nlohmann_json
   run:
     - python
-    - boost-cpp
+    - boost-cpp 1.69.0
     - {{ pin_compatible('numpy') }}
     - blosc
     - bzip2
+    - lz4-c
     - xz
     - zlib
     - six
