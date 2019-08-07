@@ -10,6 +10,7 @@ source:
     sha256: {{ checksum }}
     patches:
         - patches/cmake_lz4_patch.file
+        - patches/link_experimental_clang.patch
 
 build:
   number: 0

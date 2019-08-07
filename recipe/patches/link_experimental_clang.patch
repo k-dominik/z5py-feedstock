@@ -1,0 +1,16 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3e072d3..b046ff7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -156,8 +156,11 @@ else()
+     find_package(Boost 1.63.0 REQUIRED)
+     # see this issue for discussions about the filesystem lib in CMake
+     # https://gitlab.kitware.com/cmake/cmake/issues/17834
++    # https://stackoverflow.com/a/45332844
+     if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+         SET(FILESYSTEM_LIBRARIES "stdc++fs")
++    elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
++        SET(FILESYSTEM_LIBRARIES "libc++experimental")
+     else()
+         SET(FILESYSTEM_LIBRARIES "")
+     endif()
