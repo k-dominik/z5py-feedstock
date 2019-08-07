@@ -10,7 +10,7 @@ index 3e072d3..b046ff7 100644
      if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
          SET(FILESYSTEM_LIBRARIES "stdc++fs")
 +    elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-+        SET(FILESYSTEM_LIBRARIES "libc++experimental")
++        SET(LIBCXX_ENABLE_EXPERIMENTAL_LIBRARY ON)
      else()
          SET(FILESYSTEM_LIBRARIES "")
      endif()
