@@ -11,7 +11,7 @@ PY_ABIFLAGS=$(python -c "import sys; print('' if sys.version_info.major == 2 els
 PY_ABI=${PY_VER}${PY_ABIFLAGS}
 
 # we build with boost fs in macos
-if [[ "$OSTYPE" == "darwin" ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
     BOOST_FS=ON
 else
     BOOST_FS=OFF

@@ -1,5 +1,5 @@
 {% set version = "2.0.0" %}
-{% set checksum = "140ab56376c07fbfa6af610042316aaff48088b91d51fb87d7018fcb9b16e8cc" %}
+{% set checksum = "de2bd67286cf5f434c4c5a5559bd20bd19a841224ae216a576a66437602d7390" %}
 
 package:
   name: z5py
@@ -13,10 +13,7 @@ source:
 
 build:
   number: 0
-  # windows build is currently not working, because we need
-  # msvc 15 or higher and conda-forge still uses 14, see also
-  # https://github.com/conda-forge/z5py-feedstock/issues/23
-  skip: True  # [win]
+  skip: True  # [win and vc<14]
   skip: True  # [py27]
 
 requirements:
