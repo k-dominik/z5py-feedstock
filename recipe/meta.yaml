@@ -1,5 +1,5 @@
 {% set version = "2.0.0" %}
-{% set checksum = "81d9480d3e6bec95ef710ffcc728d99ae114ed967ac40eadc880b275a715b199" %}
+{% set checksum = "140ab56376c07fbfa6af610042316aaff48088b91d51fb87d7018fcb9b16e8cc" %}
 
 package:
   name: z5py
@@ -13,7 +13,10 @@ source:
 
 build:
   number: 0
-  skip: True  # [win and vc<14]
+  # windows build is currently not working, because we need
+  # msvc 15 or higher and conda-forge still uses 14, see also
+  # https://github.com/conda-forge/z5py-feedstock/issues/23
+  skip: True  # [win]
   skip: True  # [py27]
 
 requirements:
@@ -42,6 +45,10 @@ requirements:
     - lz4-c
     - xz
     - zlib
+    # we build with boost filesystem on macos and so
+    # we need to pin the boost version, see also
+    # https://github.com/conda-forge/z5py-feedstock/issues/24
+    - {{ pin_compatible('boost-cpp') }}  # [osx]
 
 test:
   imports:

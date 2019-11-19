@@ -10,6 +10,13 @@ PY_VER=$(python -c "import sys; print('{}.{}'.format(*sys.version_info[:2]))")
 PY_ABIFLAGS=$(python -c "import sys; print('' if sys.version_info.major == 2 else sys.abiflags)")
 PY_ABI=${PY_VER}${PY_ABIFLAGS}
 
+# we build with boost fs in macos
+if [[ "$OSTYPE" == "darwin" ]]; then
+    BOOST_FS=ON
+else
+    BOOST_FS=OFF
+fi
+
 ##
 ## Configure
 ##
@@ -34,6 +41,8 @@ cmake .. \
         -DWITH_XZ=ON \
         -DWITH_LZ4=ON \
         -DWITHIN_TRAVIS=OFF \
+        -DWITH_BOOST_FS=BOOST_FS \
+
 \
         -DPYTHON_EXECUTABLE=${PYTHON} \
         -DPYTHON_LIBRARY=${PREFIX}/lib/libpython${PY_ABI}${SHLIB_EXT} \
