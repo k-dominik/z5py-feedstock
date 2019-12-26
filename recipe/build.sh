@@ -14,6 +14,8 @@ fi
 
 # NUMPY_INCLUDE_DIR="{$PREFIX}/lib/python3.7/site-packages/numpy/core/include"
 
+echo "Run build script with prefix ${PREFIX}"
+
 ##
 ## Configure
 ##
@@ -31,6 +33,7 @@ cmake .. \
         -DCMAKE_CXX_FLAGS_DEBUG="${CXXFLAGS}" \
 \
         -DBOOST_ROOT=${PREFIX} \
+        -DPython_ROOT_DIR=${PREFIX} \
         -DWITH_BLOSC=ON \
         -DWITH_ZLIB=ON \
         -DWITH_BZIP2=ON \
