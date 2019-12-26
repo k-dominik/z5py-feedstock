@@ -12,7 +12,7 @@ cmake .. -G "%CMAKE_GENERATOR%" ^
          -DWITH_ZLIB=ON ^
          -DWITH_BZIP2=ON ^
          -DWITH_XZ=ON ^
-         -DWITH_LZ4=ON ^
+         -DWITH_LZ4=OFF ^
          -DWITHIN_TRAVIS=OFF ^
          -DPYTHON_EXECUTABLE="%PYTHON%"
 

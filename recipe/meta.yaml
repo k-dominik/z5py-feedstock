@@ -28,22 +28,24 @@ requirements:
     - xsimd >=7,<8
     - blosc
     - bzip2
-    - lz4-c
     - xz
     - zlib
     - nlohmann_json
+    # lz4 builds on conda are broken
+    # - lz4-c
   run:
     - python
     - {{ pin_compatible('numpy') }}
     - blosc
     - bzip2
-    - lz4-c
     - xz
     - zlib
     # we build with boost filesystem on macos and so
     # we need to pin the boost version, see also
     # https://github.com/conda-forge/z5py-feedstock/issues/24
     - {{ pin_compatible('boost-cpp') }}  # [osx]
+    # lz4 builds on conda are broken
+    # - lz4-c
 
 test:
   imports:
