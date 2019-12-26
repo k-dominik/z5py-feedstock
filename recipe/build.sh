@@ -12,8 +12,6 @@ else
     BOOST_FS=OFF
 fi
 
-echo "Run build script with prefix ${PREFIX}"
-
 ##
 ## Configure
 ##
@@ -31,6 +29,7 @@ cmake .. \
         -DCMAKE_CXX_FLAGS_DEBUG="${CXXFLAGS}" \
 \
         -DBOOST_ROOT=${PREFIX} \
+        -DBUILD_Z5PY=ON \
         -DWITH_BLOSC=ON \
         -DWITH_ZLIB=ON \
         -DWITH_BZIP2=ON \
@@ -38,9 +37,6 @@ cmake .. \
         -DWITH_LZ4=ON \
         -DWITHIN_TRAVIS=OFF \
         -DWITH_BOOST_FS=BOOST_FS \
-\
-        -DPython_ROOT_DIR=${PREFIX} \
-        -DPython_FIND_VIRTUALENV=ONLY \
 
 
 ##
