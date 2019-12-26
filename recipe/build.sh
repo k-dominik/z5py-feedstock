@@ -39,7 +39,7 @@ cmake .. \
         -DWITH_XZ=ON \
         -DWITH_LZ4=ON \
         -DWITHIN_TRAVIS=OFF \
-        -DWITH_BOOST_FS=BOOST_FS \
+        -DWITH_BOOST_FS=${BOOST_FS} \
 
 
 ##
