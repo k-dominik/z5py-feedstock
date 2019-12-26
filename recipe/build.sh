@@ -12,6 +12,8 @@ else
     BOOST_FS=OFF
 fi
 
+PYTHON_EXECUTABLE="${PREFIX}/bin/python"
+
 ##
 ## Configure
 ##
@@ -28,6 +30,7 @@ cmake .. \
         -DCMAKE_CXX_FLAGS_RELEASE="${CXXFLAGS} -O3 -DNDEBUG" \
         -DCMAKE_CXX_FLAGS_DEBUG="${CXXFLAGS}" \
 \
+        -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE} \
         -DBOOST_ROOT=${PREFIX} \
         -DBUILD_Z5PY=ON \
         -DWITH_BLOSC=ON \
