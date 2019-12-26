@@ -12,6 +12,8 @@ else
     BOOST_FS=OFF
 fi
 
+NUMPY_INCLUDE_DIR="{$PREFIX}/lib/python3.7/site-packages/numpy/core/include"
+
 ##
 ## Configure
 ##
@@ -36,6 +38,7 @@ cmake .. \
         -DWITH_LZ4=ON \
         -DWITHIN_TRAVIS=OFF \
         -DWITH_BOOST_FS=BOOST_FS \
+        -DPython_NumPy_INCLUDE_DIR=${NUMPY_INCLUDE_DIR}
 
 ##
 ## Compile and install
