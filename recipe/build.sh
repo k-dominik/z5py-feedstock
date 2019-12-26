@@ -12,7 +12,9 @@ else
     BOOST_FS=OFF
 fi
 
-# NUMPY_INCLUDE_DIR="{$PREFIX}/lib/python3.7/site-packages/numpy/core/include"
+NUMPY_INCLUDE_DIR="${PREFIX}/lib/python3.7/site-packages/numpy/core/include"
+PYTHON_EXECUTABLE="${PREFIX}/bin/python"
+PYTHON_INCLUDE_DIR="${PREFIX}/"
 
 echo "Run build script with prefix ${PREFIX}"
 
@@ -33,7 +35,6 @@ cmake .. \
         -DCMAKE_CXX_FLAGS_DEBUG="${CXXFLAGS}" \
 \
         -DBOOST_ROOT=${PREFIX} \
-        -DPython_ROOT_DIR=${PREFIX} \
         -DWITH_BLOSC=ON \
         -DWITH_ZLIB=ON \
         -DWITH_BZIP2=ON \
@@ -41,6 +42,10 @@ cmake .. \
         -DWITH_LZ4=ON \
         -DWITHIN_TRAVIS=OFF \
         -DWITH_BOOST_FS=BOOST_FS \
+\
+        -DPython_EXECUTABLE=${PYTHON_EXECUTABLE} \
+        -DPython_NumPy_INCLUDE_DIR=${NUMPY_INCLUDE_DIR} \
+
 
 ##
 ## Compile and install
