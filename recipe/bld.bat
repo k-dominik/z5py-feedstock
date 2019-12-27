@@ -12,8 +12,9 @@ cmake .. -G "%CMAKE_GENERATOR%" ^
          -DWITH_ZLIB=ON ^
          -DWITH_BZIP2=ON ^
          -DWITH_XZ=ON ^
-         -DWITH_LZ4=ON ^
+         -DWITH_LZ4=OFF ^
          -DWITHIN_TRAVIS=OFF ^
+         -DBUILD_Z5PY=ON ^
          -DPYTHON_EXECUTABLE="%PYTHON%"
 
 cmake --build . --config %CONFIGURATION% --target install
