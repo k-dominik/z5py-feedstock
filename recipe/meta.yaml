@@ -10,7 +10,7 @@ source:
     sha256: {{ checksum }}
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win and vc<14]
   skip: True  # [py27]
 
@@ -20,9 +20,9 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python
-    - boost-cpp >=1.63
-    - numpy
+    - python {{ python }}
+    - boost-cpp {{ boost }}
+    - numpy {{ numpy }}
     - xtensor >=0.19,<0.20
     - xtensor-python >=0.22,<0.23
     - xsimd >=7,<8
@@ -34,7 +34,7 @@ requirements:
     # lz4 builds on conda are broken
     # - lz4-c
   run:
-    - python
+    - {{ pin_compatible('python') }}
     - {{ pin_compatible('numpy') }}
     - blosc
     - bzip2
@@ -50,10 +50,10 @@ requirements:
 test:
   imports:
     - z5py
-  #source_files:
-  #  - src/python/test/*.py
-  #commands:
-  #  - python -m unittest discover -s src/python/test -v
+  source_files:
+    - src/python/test/*.py
+  commands:
+    - python -m unittest discover -s src/python/test -v
 
 about:
   home: https://github.com/constantinpape/z5
