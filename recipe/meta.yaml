@@ -51,9 +51,9 @@ test:
   imports:
     - z5py
   source_files:
-    - src/python/test/*.py
+    - src/python/test/*.py  # [not win]
   commands:
-    - python -m unittest discover -s src/python/test -v
+    - python -m unittest discover -s src/python/test -v  # [not win]
 
 about:
   home: https://github.com/constantinpape/z5
