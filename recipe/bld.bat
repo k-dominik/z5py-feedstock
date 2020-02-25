@@ -3,7 +3,7 @@ cd build
 
 set CONFIGURATION=Release
 
-cmake .. -G "NMake Makefile" ^
+cmake .. -G "NMake Makefiles" ^
          -DCMAKE_BUILD_TYPE=%CONFIGURATION% ^
          -DCMAKE_PREFIX_PATH="%PREFIX%" ^
          -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
